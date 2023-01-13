@@ -1,7 +1,8 @@
 (module config.plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
-             cmplsp cmp_nvim_lsp}})
+             cmplsp cmp_nvim_lsp
+             sqls sqls}})
 
 ;symbols to show for lsp diagnostics
 (defn define-signs
@@ -63,3 +64,6 @@
   (lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
                           :capabilities capabilities}))
+
+(lsp.sqls.setup {:on_attach (fn [client bufnr]
+                              (sqls.on_attach client bufnr))})

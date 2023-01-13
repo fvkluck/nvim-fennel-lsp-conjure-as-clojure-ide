@@ -45,6 +45,10 @@
                                              :nvim-lua/plenary.nvim]
                                   :mod :telescope}
 
+  ;; fzf and similar
+  :junegunn/fzf {}
+  :junegunn/fzf.vim {}
+
   ;; repl tools
   :Olical/conjure {:branch :master :mod :conjure}
 
@@ -69,4 +73,8 @@
                                 :hrsh7th/cmp-nvim-lsp
                                 :hrsh7th/cmp-vsnip
                                 :PaterJason/cmp-conjure]
-                     :mod :cmp})
+                     :mod :cmp}
+
+  :nanotee/sqls.nvim {}
+
+  :tpope/vim-fugitive {})

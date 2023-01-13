@@ -9,8 +9,18 @@
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
-;don't wrap lines
-(nvim.ex.set :nowrap)
+(nvim.set_keymap :n :<leader>q ":q<CR>" {:noremap true})
+(nvim.set_keymap :n "gh" ":w<CR>" {:noremap true})
+
+;; Ctrl P opens files
+(nvim.set_keymap :n :<C-p> ":Files<CR>" {:noremap true})
+(nvim.set_keymap :n :\ ":Ag<CR>" {:noremap true})
+
+;; Easier editing of vimrc
+(nvim.set_keymap :n :<leader>ev ":e $MYVIMRC<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>sv ":so %<CR>" {:noremap true})
+
+(nvim.set_keymap :n :<localleader>/ ":nohlsearch<CR>" {:noremap true})
 
 ;sets a nvim global options
 (let [options
@@ -21,7 +31,12 @@
        ;smart search case
        :smartcase true
        ;shared clipboard with linux
-       :clipboard "unnamedplus"}]
+       :list true
+       :listchars "tab:>-,trail:.,extends:>"
+       :clipboard "unnamedplus"
+       :number true
+       :relativenumber true
+       :wrap true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
